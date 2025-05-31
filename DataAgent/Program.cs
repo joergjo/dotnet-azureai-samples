@@ -51,7 +51,7 @@ var resources = new ToolResources
 
 PersistentAgent agent = await agentClient.Administration.CreateAgentAsync(
     deployment,
-    name: $"data-agent-net-{Random.Shared.Next(1_000_000)}",
+    name: $"data-agent-{Random.Shared.Next(1_000_000)}",
     instructions:
     "You are an AI agent that analyzes the data in the file that has been uploaded. If the user requests a chart, create it and save it as a .png file.",
     tools: [new CodeInterpreterToolDefinition()],
