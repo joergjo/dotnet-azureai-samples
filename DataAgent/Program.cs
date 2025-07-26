@@ -53,7 +53,10 @@ PersistentAgent agent = await agentClient.Administration.CreateAgentAsync(
     deployment,
     name: $"data-agent-{Random.Shared.Next(1_000_000)}",
     instructions:
-    "You are an AI agent that analyzes the data in the file that has been uploaded. If the user requests a chart, create it and save it as a .png file.",
+    """
+    "You are an AI agent that analyzes the data in the file that has been uploaded. 
+    If the user requests a chart, create it and save it as a .png file.
+    """,
     tools: [new CodeInterpreterToolDefinition()],
     toolResources: resources);
 
@@ -93,13 +96,11 @@ while (true)
         Thread.Sleep(TimeSpan.FromMilliseconds(500));
         run = agentClient.Runs.GetRun(thread.Id, run.Id);
     } while (run.Status == RunStatus.Queued ||
-             run.Status == RunStatus.InProgress ||
-             run.Status == RunStatus.RequiresAction);
+             run.Status == RunStatus.InProgress);
 
     if (run.Status == RunStatus.Failed)
     {
         Console.WriteLine("Run failed: {0}", run.LastError);
-        // ReSharper disable once RedundantJumpStatement
         continue;
     }
 
@@ -119,9 +120,21 @@ while (true)
                         shouldBreak = true;
                         Console.WriteLine("Last message: {0}", textContent.Text);
                         break;
+                    case MessageImageFileContent imageFileContent:
+                    {
+                        shouldBreak = true;
+                        // Get any generated files
+                        var fileName = $"{imageFileContent.FileId}_image_file.png";
+                        BinaryData fileContent = await agentClient.Files.GetFileContentAsync(imageFileContent.FileId);
+                        await using var stream = File.Open(fileName, FileMode.Create);
+                        await stream.WriteAsync(fileContent);
+                        Console.WriteLine("Saved image file to {0}/{1}", cwd, fileName);
+                        break;
+                    }
                 }
             }
         }
+
         if (shouldBreak)
         {
             break;
@@ -143,16 +156,6 @@ await foreach (var message in messages)
                 // Get the conversation history
                 Console.WriteLine("{0}: {1}", message.Role, textContent.Text);
                 break;
-            case MessageImageFileContent imageFileContent:
-            {
-                // Get any generated files
-                var fileName = $"{imageFileContent.FileId}_image_file.png";
-                BinaryData fileContent = await agentClient.Files.GetFileContentAsync(imageFileContent.FileId);
-                await using var stream = File.Open(fileName, FileMode.Create);
-                await stream.WriteAsync(fileContent);
-                Console.WriteLine("Saved image file to {0}/{1}", cwd, fileName);
-                break;
-            }
         }
     }
 }
