@@ -109,17 +109,6 @@ while (true)
                 var contentUpdate = (MessageContentUpdate)streamingUpdate;
                 Console.Write(contentUpdate.Text);
                 break;
-            case StreamingUpdateReason.MessageCompleted:
-                var messageStatusUpdate = (MessageStatusUpdate)streamingUpdate;
-                var contentItems = messageStatusUpdate.Value.ContentItems;
-                foreach (var contentItem in contentItems)
-                {
-                    if (contentItem is MessageTextContent textContent)
-                    {
-                        Console.WriteLine(textContent.Text);
-                    }
-                }
-                break;
         }
     }
 }
