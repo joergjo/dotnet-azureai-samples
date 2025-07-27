@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAgent", "DataAgent\Data
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionsAgent", "FunctionsAgent\FunctionsAgent.csproj", "{C6FF73B2-2E0D-4F43-901B-11C1D7B12809}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectedAgents", "ConnectedAgents\ConnectedAgents.csproj", "{80DE9BF3-9238-484B-BE73-571FA5443AE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{C6FF73B2-2E0D-4F43-901B-11C1D7B12809}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6FF73B2-2E0D-4F43-901B-11C1D7B12809}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6FF73B2-2E0D-4F43-901B-11C1D7B12809}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80DE9BF3-9238-484B-BE73-571FA5443AE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80DE9BF3-9238-484B-BE73-571FA5443AE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80DE9BF3-9238-484B-BE73-571FA5443AE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80DE9BF3-9238-484B-BE73-571FA5443AE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
