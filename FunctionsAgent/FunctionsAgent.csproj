@@ -5,14 +5,15 @@
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <UserSecretsId>cc7bcfb4-2cbf-47e7-8ae8-bbf826ab089a</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.1" />
-      <PackageReference Include="Azure.Identity" Version="1.14.2" />
-      <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.7" />
-      <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="9.0.7" />
-      <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.7" />
+        <PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.1"/>
+        <PackageReference Include="Azure.Identity" Version="1.14.2"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.7"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="9.0.7"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.7"/>
     </ItemGroup>
 
 </Project>
