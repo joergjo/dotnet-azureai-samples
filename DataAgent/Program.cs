@@ -106,8 +106,7 @@ while (true)
 
     // Show the latest response from the agent
     runId = run.Id;
-    var threadMessages = agentClient.Messages.GetMessagesAsync(thread.Id, order: ListSortOrder.Descending);
-    var shouldBreak = false;
+    var threadMessages = agentClient.Messages.GetMessagesAsync(thread.Id, run.Id, order: ListSortOrder.Ascending);
     await foreach (var message in threadMessages)
     {
         if (message.Role == MessageRole.Agent)
@@ -117,12 +116,10 @@ while (true)
                 switch (content)
                 {
                     case MessageTextContent textContent:
-                        shouldBreak = true;
-                        Console.WriteLine("Last message: {0}", textContent.Text);
+                        Console.WriteLine("{0}: {1}", message.Role, textContent.Text);
                         break;
                     case MessageImageFileContent imageFileContent:
                     {
-                        shouldBreak = true;
                         // Get any generated files
                         var fileName = $"{imageFileContent.FileId}_image_file.png";
                         BinaryData fileContent = await agentClient.Files.GetFileContentAsync(imageFileContent.FileId);
@@ -133,29 +130,6 @@ while (true)
                     }
                 }
             }
-        }
-
-        if (shouldBreak)
-        {
-            break;
-        }
-    }
-}
-
-var messages = agentClient.Messages.GetMessagesAsync(
-    threadId: thread.Id,
-    runId: runId,
-    order: ListSortOrder.Ascending);
-await foreach (var message in messages)
-{
-    foreach (var content in message.ContentItems)
-    {
-        switch (content)
-        {
-            case MessageTextContent textContent:
-                // Get the conversation history
-                Console.WriteLine("{0}: {1}", message.Role, textContent.Text);
-                break;
         }
     }
 }
