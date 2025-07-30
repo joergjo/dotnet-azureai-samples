@@ -49,7 +49,7 @@ PersistentAgent agent = agentClient.Administration.CreateAgent(
 
 // Log info
 Console.WriteLine("Created agent with ID {0}", agent.Id);
-Console.WriteLine($"MCP server '{mcpTool.ServerLabel}' at '{mcpTool.ServerUrl}");
+Console.WriteLine($"MCP server '{mcpTool.ServerLabel}' at '{mcpTool.ServerUrl}'");
 
 // Create thread for communication
 PersistentAgentThread thread = await agentClient.Threads.CreateThreadAsync();
