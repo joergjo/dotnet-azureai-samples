@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionsAgent", "Functions
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectedAgents", "ConnectedAgents\ConnectedAgents.csproj", "{80DE9BF3-9238-484B-BE73-571FA5443AE4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCPAgent", "MCPAgent\MCPAgent.csproj", "{1184F843-A048-4C3F-AC02-C5ADA37FA585}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{80DE9BF3-9238-484B-BE73-571FA5443AE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80DE9BF3-9238-484B-BE73-571FA5443AE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80DE9BF3-9238-484B-BE73-571FA5443AE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1184F843-A048-4C3F-AC02-C5ADA37FA585}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1184F843-A048-4C3F-AC02-C5ADA37FA585}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1184F843-A048-4C3F-AC02-C5ADA37FA585}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1184F843-A048-4C3F-AC02-C5ADA37FA585}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

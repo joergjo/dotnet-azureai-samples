@@ -9,6 +9,7 @@ The samples have been ported from Microsoft Learn modules that existed only for 
 |---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [DataAgent](./DataAgent/)             | [Develop an AI agent with Azure AI Foundry Agent Service](https://learn.microsoft.com/en-us/training/modules/develop-ai-agent-azure/)                          |
 | [FunctionsAgent](./FunctionsAgent/)   | [Integrate custom tools into your agent](https://learn.microsoft.com/en-us/training/modules/build-agent-with-custom-tools/)                                    |
+| [MCPAgent](./MCPAgent/)               | [Integrate MCP Tools with Azure AI Agents](https://learn.microsoft.com/en-us/training/modules/connect-agent-to-mcp-tools/)                                     |
 | [ConnectedAgents](./ConnectedAgents/) | [Develop a multi-agent solution with Azure AI Foundry Agent Service](https://learn.microsoft.com/en-us/training/modules/develop-multi-agent-azure-ai-foundry/) |
 
 Follow the links in the table to access the corresponding Microsoft Learn modules for detailed instructions and explanations.
