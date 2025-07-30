@@ -40,7 +40,6 @@ public static class Agents
                                                             - Large: Multi-day or cross-team effort
 
                                                             Base your estimate on the complexity implied by the ticket. Respond with the effort level and a brief justification.
-
                                                             """;
 
     public static readonly string TriageAgentInstructions = """

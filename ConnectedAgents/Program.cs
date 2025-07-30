@@ -72,13 +72,17 @@ PersistentAgentThread thread = await agentClient.Threads.CreateThreadAsync();
 
 // Create the ticket prompt
 const string prompt = "Users can't reset their password from the mobile app.";
+var defaultColor = Console.ForegroundColor;
+Console.ForegroundColor = ConsoleColor.DarkBlue;
+Console.WriteLine("USER: {0}", prompt);
+Console.ForegroundColor = defaultColor;
 
 // Send a prompt to the agent
 await agentClient.Messages.CreateMessageAsync(thread.Id, MessageRole.User, prompt);
 
 // Create and process Agent run in thread with tools
 Console.WriteLine("Processing agent thread. Please wait.");
-var defaultColor = Console.ForegroundColor;
+defaultColor = Console.ForegroundColor;
 await foreach (var streamingUpdate in agentClient.Runs.CreateRunStreamingAsync(thread.Id, triageAgent.Id))
 {
     switch (streamingUpdate.UpdateKind)
