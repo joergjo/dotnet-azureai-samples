@@ -66,7 +66,6 @@ Console.WriteLine("Using agent: {0}", agent.Name);
 PersistentAgentThread thread = await agentClient.Threads.CreateThreadAsync();
 
 // Loop until the user types 'quit'
-var runId = string.Empty;
 while (true)
 {
     Console.Write("Enter a prompt (or type 'quit' to exit): ");
@@ -105,7 +104,6 @@ while (true)
     }
 
     // Show the latest response from the agent
-    runId = run.Id;
     var threadMessages = agentClient.Messages.GetMessagesAsync(thread.Id, run.Id, order: ListSortOrder.Ascending);
     await foreach (var message in threadMessages)
     {
